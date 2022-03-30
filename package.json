@@ -1,0 +1,37 @@
+{
+  "name": "webpack-modify-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "husky": "npx husky install && npx husky add .husky/pre-commit \"npm run lint-staged\"",
+    "lint:js": "eslint --ext .js,.jsx,.ts,.tsx --format=pretty \"./src\" ",
+    "lint:fix": "npm run lint:fix:js && npm run lint:style",
+    "lint-staged": "lint-staged",
+    "lint:fix:js": "eslint --fix --ext .js,.jsx,.ts,.tsx --format=pretty \"./src\" ",
+    "lint:style": "stylelint --fix \"src/**/*.scss\" --syntax scss",
+    "lint-staged:js": "eslint --fix --ext .js,.jsx,.ts,.tsx",
+    "lint-staged:style": "stylelint --fix --syntax scss"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.12.0",
+    "prettier": "^2.6.1",
+    "river-compass": "latest",
+    "webpack": "latest"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^11.1.2"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js"
+  }
+}

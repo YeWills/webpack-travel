@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -12,7 +12,8 @@ module.exports = {
         // include: [path.resolve(this.cwd, 'src')],
         // exclude: [path.resolve(this.cwd, 'src/pages/Bpmn/bpmnEditor/CustomPropertiesPanel')],
         use: {
-          loader: 'babel-loader?cacheDirectory=true',
+          // loader: 'babel-loader?cacheDirectory=true',
+          loader: 'babel-loader',
           options: {
             presets: [
               [
@@ -24,53 +25,52 @@ module.exports = {
                   corejs: 3,
                 },
               ],
-              '@babel/preset-react',
+              // '@babel/preset-react',
             ],
-          
           },
         },
       },
-      {
-        test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            // options: {
-            //     modules: true,
-            //     localIdentName: '__[name]-[local]-[hash:5]__',
-            // }
-          },
-          { loader: 'sass-loader' },
-        ],
-      },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     { loader: 'style-loader' },
+      //     {
+      //       loader: 'css-loader',
+      //       // options: {
+      //       //     modules: true,
+      //       //     localIdentName: '__[name]-[local]-[hash:5]__',
+      //       // }
+      //     },
+      //     { loader: 'sass-loader' },
+      //   ],
+      // },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/index.html'),
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: path.resolve(__dirname, './src/index.html'),
+    // }),
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
   },
-  devtool: 'source-map',
-  devServer: {
-    // static: './dist',
-    compress: true,
-    // open: {
-    //   target: 'http://localhost:4000',
-    // },
-    // https: true,
-    port: 4000,
-    proxy: {
-      '/testipi': {
-        target: 'https://test.com',
-        changeOrigin: true,
-      },
-    },
-    allowedHosts: ['localhost'],
-  },
+  // devtool: 'none',
+  // devtool: 'source-map',
+  // devServer: {
+  //   // static: './dist',
+  //   compress: true,
+  //   // open: {
+  //   //   target: 'http://localhost:4000',
+  //   // },
+  //   // https: true,
+  //   port: 4000,
+  //   proxy: {
+  //     '/testipi': {
+  //       target: 'https://test.com',
+  //       changeOrigin: true,
+  //     },
+  //   },
+  //   allowedHosts: ['localhost'],
+  // },
 };

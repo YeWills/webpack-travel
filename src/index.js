@@ -1,6 +1,5 @@
-import srctFn from './srctest';
-import srcpage from './srcpage';
+/* eslint-disable prettier/prettier */
+const { foo } = require("./utils/mtest");
 
-srctFn('ffffffffffffd');
-srcpage('ffffffffffffd');
-console.log('--index-page------009883njoddsrg543ghjsdg112111111111111111');
+console.log(foo(1, 3));
+console.log('index---------------------');

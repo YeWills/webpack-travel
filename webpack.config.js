@@ -8,7 +8,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        // exclude: /src.{0,3}srctest/,
+        exclude: /srctest/,
         // include: [path.resolve(this.cwd, 'src')],
         // exclude: [path.resolve(this.cwd, 'src/pages/Bpmn/bpmnEditor/CustomPropertiesPanel')],
         use: {
